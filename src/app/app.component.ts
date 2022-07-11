@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from './http/api.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'retryErrorHttpRequests';
+
+  constructor(private api: ApiService){}
+
+  get401(){
+    this.api.get401().subscribe();
+  }
+
+  get503(){
+    this.api.get503().subscribe();
+  }
+
+
+
 }
